@@ -24,9 +24,9 @@ Toggles spectate mode of command executor, or `target`.
 
 ### !spawnobj
 - **Alias(es)**: !spawnobj, !spawn, !spobj, !sp
-- **Usage**: !spawnobj \[target\] \<preset\>
+- **Usage**: !spawnobj \<preset\>
 
-Spawns specified object `preset` at command executor's or `target`'s location. Presets to block can be configured from configuration.
+Spawns specified object `preset` at command executor's location. Presets to block can be configured from configuration.
 <br /><br />
 
 
