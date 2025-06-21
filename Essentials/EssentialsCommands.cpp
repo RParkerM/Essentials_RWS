@@ -42,6 +42,7 @@ CHATCMD_DEF(EssentialsEventClass, Fly) {
 	} else {
 		DA::Page_Player(Player, "Couldn't toggle %ws's fly mode.", Target->Get_Name().Peek_Buffer());
 	}
+	DA::Host_Message("%ws used the !fly command on %ws.", Player->Get_Name().Peek_Buffer(), Target->Get_Name().Peek_Buffer());
 
 	return false;
 }
@@ -94,6 +95,7 @@ CHATCMD_DEF(EssentialsEventClass, SpawnObject) {
 	} else {
 		DA::Page_Player(Player, "Spawning \"%s\" is disabled.", Preset.Peek_Buffer());
 	}
+	DA::Host_Message("%ws used the !spawn command with preset \"%s\".", Player->Get_Name().Peek_Buffer(), Preset.Peek_Buffer());
 
 	return false;
 }
@@ -199,6 +201,7 @@ CHATCMD_DEF(EssentialsEventClass, FastSpawn) {
 	} else {
 		DA::Page_Player(Player, "Invalid alias: \"%s\".", Text[0]);
 	}
+	DA::Host_Message("%ws used the !fastpawn command with alias \"%s\".", Player->Get_Name().Peek_Buffer(), Text[0]);
 
 	return false;
 }
@@ -223,6 +226,7 @@ CHATCMD_DEF(EssentialsEventClass, GiveMoney) {
 	} else {
 		DA::Page_Player(Player, "Amount must be a number.");
 	}
+	DA::Host_Message("%ws used the !money command on %ws with amount %.0f.", Player->Get_Name().Peek_Buffer(), Target->Get_Name().Peek_Buffer(), amount);
 
 	return false;
 }
@@ -236,6 +240,7 @@ CHATCMD_DEF(EssentialsEventClass, GoTo) {
 	} else {
 		DA::Page_Player(Player, "Could not teleport you to %ws's location.", Target->Get_Name().Peek_Buffer());
 	}
+	DA::Host_Message("%ws used the !goto command on %ws.", Player->Get_Name().Peek_Buffer(), Target->Get_Name().Peek_Buffer());
 
 	return false;
 }
@@ -251,6 +256,7 @@ CHATCMD_DEF(EssentialsEventClass, Put) {
 			DA::Page_Player(Player, "Could not teleport %ws to %ws's location.", Source->Get_Name().Peek_Buffer(), Target->Get_Name().Peek_Buffer());
 		}
 	}
+	DA::Host_Message("%ws used the !put command on %ws to %ws.", Player->Get_Name().Peek_Buffer(), Source ? Source->Get_Name().Peek_Buffer() : L"Unknown", Target ? Target->Get_Name().Peek_Buffer() : L"Unknown");
 
 	return false;
 }
@@ -291,6 +297,7 @@ CHATCMD_DEF(EssentialsEventClass, PutAll) {
 	} else {
 		DA::Page_Player(Player, "Couldn't find target object.");
 	}
+	DA::Host_Message("%ws used the !putall command on %ws.", Player->Get_Name().Peek_Buffer(), Target->Get_Name().Peek_Buffer());
 
 	return false;
 }
@@ -342,6 +349,7 @@ CHATCMD_DEF(EssentialsEventClass, PutAllLine) {
 	} else {
 		DA::Page_Player(Player, "Couldn't find target object.");
 	}
+	DA::Host_Message("%ws used the !putallline command on %ws.", Player->Get_Name().Peek_Buffer(), Target->Get_Name().Peek_Buffer());
 
 	return false;
 }
@@ -408,6 +416,7 @@ CHATCMD_DEF(EssentialsEventClass, PutAllCircle) {
 	else {
 		DA::Page_Player(Player, "Couldn't find target object.");
 	}
+	DA::Host_Message("%ws used the !putallcircle command on %ws.", Player->Get_Name().Peek_Buffer(), Target->Get_Name().Peek_Buffer());
 
 	return false;
 }
@@ -442,6 +451,7 @@ CHATCMD_DEF(EssentialsEventClass, SetHealth) {
 	} else {
 		DA::Page_Player(Player, "Value must be a number.");
 	}
+	DA::Host_Message("%ws used the !sethealth command on %ws with amount %.0f.", Player->Get_Name().Peek_Buffer(), Target->Get_Name().Peek_Buffer(), amount);
 
 	return false;
 }
@@ -476,6 +486,7 @@ CHATCMD_DEF(EssentialsEventClass, SetArmor) {
 	} else {
 		DA::Page_Player(Player, "Value must be a number.");
 	}
+	DA::Host_Message("%ws used the !setarmor command on %ws with amount %.0f.", Player->Get_Name().Peek_Buffer(), Target->Get_Name().Peek_Buffer(), amount);
 
 	return false;
 }
@@ -510,6 +521,7 @@ CHATCMD_DEF(EssentialsEventClass, SetMaxHealth) {
 	} else {
 		DA::Page_Player(Player, "Value must be a number.");
 	}
+	DA::Host_Message("%ws used the !setmaxhealth command on %ws with amount %.0f.", Player->Get_Name().Peek_Buffer(), Target->Get_Name().Peek_Buffer(), amount);
 
 	return false;
 }
@@ -544,6 +556,7 @@ CHATCMD_DEF(EssentialsEventClass, SetMaxArmor) {
 	} else {
 		DA::Page_Player(Player, "Value must be a number.");
 	}
+	DA::Host_Message("%ws used the !setmaxarmor command on %ws with amount %.0f.", Player->Get_Name().Peek_Buffer(), Target->Get_Name().Peek_Buffer(), amount);
 
 	return false;
 }
@@ -579,6 +592,7 @@ CHATCMD_DEF(EssentialsEventClass, SetClipAmmo) {
 	} else {
 		DA::Page_Player(Player, "Value must be a number.");
 	}
+	DA::Host_Message("%ws used the !setclipammo command on %ws with amount %d.", Player->Get_Name().Peek_Buffer(), Target->Get_Name().Peek_Buffer(), amount);
 
 	return false;
 }
@@ -614,6 +628,7 @@ CHATCMD_DEF(EssentialsEventClass, SetInventoryAmmo) {
 	} else {
 		DA::Page_Player(Player, "Value must be a number.");
 	}
+	DA::Host_Message("%ws used the !setinventoryammo command on %ws with amount %d.", Player->Get_Name().Peek_Buffer(), Target->Get_Name().Peek_Buffer(), amount);
 
 	return false;
 }
@@ -811,6 +826,7 @@ CHATCMD_DEF(EssentialsEventClass, SetSpeed) {
 	} else {
 		DA::Page_Player(Player, "Speed value must be a number.");
 	}
+	DA::Host_Message("%ws used the !setspeed command on %ws with amount %.0f.", Player->Get_Name().Peek_Buffer(), Target->Get_Name().Peek_Buffer(), amount);
 	
 	return false;
 }
@@ -851,6 +867,7 @@ CHATCMD_DEF(EssentialsEventClass, ReviveBuilding) {
 	} else {
 		DA::Page_Player(Player, "Unable to find team \"%s\". Try (1 = %s) or (0 = %s)", Text[1], Get_Team_Name(1), Get_Team_Name(0));
 	}
+	DA::Host_Message("%ws used the !revivebuilding command on team %s with preset %s.", Player->Get_Name().Peek_Buffer(), Text[1], Text[2]);
 
 	return false;
 }
